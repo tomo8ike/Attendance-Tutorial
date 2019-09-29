@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190924150303) do
+ActiveRecord::Schema.define(version: 20190928073804) do
 
 # Could not dump table "users" because of following StandardError
 #   Unknown type 'strings' for column 'remember_digest'
