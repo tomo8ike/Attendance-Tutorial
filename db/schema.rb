@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191001134619) do
+ActiveRecord::Schema.define(version: 20191001124600) do
 
   create_table "attendances", force: :cascade do |t|
     t.date "worked_on"
@@ -23,7 +23,18 @@ ActiveRecord::Schema.define(version: 20191001134619) do
     t.index ["user_id"], name: "index_attendances_on_user_id"
   end
 
-# Could not dump table "users" because of following StandardError
-#   Unknown type 'strings' for column 'remember_digest'
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "remember_digest"
+    t.boolean "admin", default: false
+    t.datetime "basic_time", default: "2019-10-05 23:00:00"
+    t.datetime "work_time", default: "2019-10-05 22:30:00"
+    t.string "department"
+    t.index ["email"], name: "index_users_on_email", unique: true
+  end
 
 end
